@@ -1,0 +1,11 @@
+### IDEs
+.vscode
+.idea
+
+### Composer template
+composer.phar
+/vendor/
+
+### PHP CS Fixer
+.php_cs.cache
+.php-cs-fixer.cache
