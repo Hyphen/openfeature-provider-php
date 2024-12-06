@@ -20,14 +20,14 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
           tools: cs2pr
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
       - name: Run PHP-CS-Fixer
-        run: vendor/bin/php-cs-fixer fix --dry-run --verbose --diff
+        run: composer run lint
       - name: Lint PHP code
-        run: vendor/bin/phpstan analyse
+        run: composer run analyse
 
   test:
     name: Tests
@@ -38,7 +38,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
           coverage: xdebug
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
@@ -54,7 +54,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
       - name: Build package
